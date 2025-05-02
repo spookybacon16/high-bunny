@@ -1,0 +1,740 @@
+/* CSS Document */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* jouw CSS vanaf hier */
+html {
+  height: 100%;
+}
+
+body {
+  width: 100vw;
+  height: 100%;
+  /* background-color: rgb(0, 146, 183); */
+  background-color: var(--body-bg);
+}
+
+
+/* svg {
+  max-width: 300px;
+  max-height: 300px;
+  background-color: red;
+} */
+
+
+/* wiet plant */
+.plant {
+  position: absolute;
+  width: 70em;
+  left: calc(50% - 28em);
+  top: 47vh;
+  transform: translateY(-0.075em);
+  display: none;
+
+}
+
+
+.plant-visable {
+  display: block;
+
+  transition-property: transform, height;
+  transition-duration: 3s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-in;
+}
+
+
+.plant-visable.ttf-ease {
+  transition-timing-function: ease-in;
+  transform: translateX(0);
+  opacity: 100%;
+}
+
+
+.cls-12 {
+  fill: #6fb544;
+  stroke: #231f20;
+  stroke-miterlimit: 10;
+  stroke-width: 1.24px;
+}
+
+
+/* Wietpot */
+#pot {
+  position: absolute;
+  width: 70em;
+  left: calc(50% - 28em);
+
+  top: 57vh;
+  transform: translateY(-0.075em);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.cls-1 {
+  fill: #be6c29;
+}
+
+.cls-2 {
+  fill: #64574e;
+}
+
+.cls-3 {
+  fill: #f7941d;
+}
+
+.cls-3,
+.cls-4 {
+  stroke: #231f20;
+  stroke-miterlimit: 10;
+  stroke-width: 1.42px;
+}
+
+.cls-4 {
+  fill: none;
+}
+
+/* LIGHT MODE */
+:root {
+  --body-bg: rgb(0, 146, 183);
+  --lijf-bg: rgb(255, 221, 2);
+  /* --color-color: black;
+  --color2-color: rgb(0, 0, 0);
+  --color3-color: rgb(255, 255, 255);
+  --color4-color: rgb(255, 255, 255); */
+  --color-color: red;
+  --color2-color: orange;
+  --color3-color: yellow;
+  --color4-color: green;
+  --color5-color: blue;
+
+  --image: repeating-radial-gradient(closest-side circle,
+      white calc(100% - 18em),
+      dodgerblue,
+      lime,
+      yellow,
+      rgb(255, 104, 34),
+      red,
+      white 100%);
+  --buttonborder-bg: black;
+}
+
+
+/* DARK MODE*/
+@media (prefers-color-scheme:dark) {
+  :root {
+    --body-bg: rgb(2, 56, 69);
+    /* --color-color: rgb(255, 255, 255);
+    --color2-color: rgb(255, 255, 255);
+    --color3-color: rgb(255, 255, 255);
+    --color4-color: rgb(255, 255, 255); */
+    --color-color: red;
+    --color2-color: orange;
+    --color3-color: yellow;
+    --color4-color: green;
+    --color5-color: blue;
+
+    --image: repeating-radial-gradient(closest-side circle,
+        rgb(0, 0, 0) calc(100% - 18em),
+        dodgerblue,
+        lime,
+        yellow,
+        rgb(255, 104, 34),
+        red,
+        rgb(0, 0, 0) 100%);
+
+    --buttonborder-bg: white;
+  }
+}
+
+/* kleur van de kleding aanpassen */
+form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  top: 10vw;
+  right: calc(50% - 40vw);
+  z-index: 100;
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background-color: rgba(188, 228, 255, 0);
+  border: .3em solid var(--buttonborder-bg);
+
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+
+.form-control+.form-control {
+  margin-top: 1em;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 2.8em;
+  height: 2.8em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.2S;
+  opacity: 0;
+}
+
+input[type="radio"]#geel::before {
+  background-color: rgb(255, 221, 2);
+}
+
+input[type="radio"]#rood::before {
+  background-color: rgb(223, 4, 4);
+}
+
+input[type="radio"]#groen::before {
+  background-color: rgb(94, 232, 3);
+}
+
+input[type="radio"]#blauw::before {
+  background-color: rgb(2, 44, 255);
+}
+
+input[type="radio"]:hover::before {
+  opacity: .75;
+  transform: scale(1);
+}
+
+input[type="radio"]:checked::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* Radio buttons */
+.geel {
+  --lijf-bg: rgb(255, 221, 2);
+}
+
+.rood {
+  --lijf-bg: rgb(223, 4, 4);
+}
+
+.groen {
+  --lijf-bg: rgb(94, 232, 3);
+}
+
+.blauw {
+  --lijf-bg: rgb(2, 44, 255);
+}
+
+
+
+
+/* .letters {
+  position: absolute;
+  animation: updown 1s linear infinite;
+  left: calc(10% - 7.3em);
+  bottom: 30em;
+}
+
+@keyframes updown {
+
+  0%,
+  {
+  top: 10em
+}
+
+
+50% {
+  bottom: 30em;
+}
+
+100% {
+  bottom: 10em;
+}
+}
+
+@keyframes MoveUpDown {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+} */
+
+
+
+@font-face {
+  font-family: myfirstfont;
+  src: url(./RetroCoolRegular-rgV2O.ttf);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  -webkit-text-stroke: .5px black;
+  font-size: 6.5vw;
+  left: calc(50% - 7.3em);
+}
+
+h1 {
+  color: var(--color-color);
+  font-family: myfirstfont;
+  position: absolute;
+
+  top: 3vh;
+  z-index: 100;
+}
+
+h2 {
+  color: var(--color2-color);
+  font-family: myfirstfont;
+  position: absolute;
+
+  top: 3vh;
+  z-index: 90;
+
+}
+
+
+h3 {
+  color: var(--color3-color);
+  font-family: myfirstfont;
+  position: absolute;
+
+  top: 3vh;
+  z-index: 80;
+
+}
+
+h4 {
+  color: var(--color4-color);
+  font-family: myfirstfont;
+  position: absolute;
+
+  top: 2vh;
+  z-index: 70;
+}
+
+h5 {
+  color: var(--color5-color);
+  font-family: myfirstfont;
+  position: absolute;
+  top: .6vh;
+  z-index: 60;
+}
+
+
+/* Audio muziek */
+#radio {
+  position: relative;
+  left: calc(50% - 47vw);
+  top: 20vw;
+  width: 25%;
+}
+
+
+/* de container van de bunny */
+.bunnycontainer {
+  position: absolute;
+  width: 30em;
+  height: 16em;
+  left: calc(50% - 12em);
+  bottom: 71vh;
+}
+
+
+
+.bunny {
+  width: 100%;
+  height: 100%;
+  background-image: var(--image);
+  background-position: center center;
+
+  animation-name: trippy;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+@keyframes trippy {
+  0% {
+    background-size: 100% 100%;
+  }
+
+  100% {
+    background-size: calc(100% + 36em) calc(100% + 36em);
+  }
+}
+
+
+/* de oren van de bunny */
+.oren {
+  position: absolute;
+  width: 6em;
+  height: 12em;
+  bottom: 13.5em;
+  /* background-color: rgb(255, 221, 49); */
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset -.25em .25em 0 #00000033;
+  border-radius: 70% 70% 30% 30% / 80% 80% 50% 50%;
+
+  animation-name: wiebelen;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  transform-origin: 50% 80%;
+}
+
+
+.oren.links {
+  left: 3em;
+  transform: rotate(-5deg);
+
+  animation-duration: .40s;
+}
+
+.oren.rechts {
+  right: 3em;
+  transform: rotate(5deg);
+
+  animation-duration: .40s;
+}
+
+
+@keyframes wiebelen {
+  0% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+
+
+/* hoofd van de bunny */
+.hoofd {
+  width: 20em;
+  height: 16em;
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset -.3em -.3em 0 #00000033;
+  border-radius: 15em 15em 10em 10em;
+  position: absolute;
+  z-index: 100;
+  top: 16em;
+  left: 4em;
+
+  transform-origin: 50% 70%;
+  animation: rotation 0s linear infinite;
+  cursor: pointer;
+
+
+  animation-name: wiebelen;
+  animation-duration: .35s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+
+/* het gezicht van de vetgans */
+.gezicht {
+  display: flex;
+  position: relative;
+  gap: 7em;
+  top: 9em;
+  left: 4em;
+}
+
+
+@keyframes rotation {
+  /* 0% {
+    transform: rotate(-45deg)
+  }
+
+  50% {
+    transform: rotate(paused)
+  } */
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+
+.rotation {
+  animation: rotation 2s linear infinite;
+}
+
+
+/* de ogen van de bunny */
+@keyframes knipperen {
+
+  0%,
+  30% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(0);
+  }
+
+  70%,
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+
+.oog {
+  width: 2.5em;
+  aspect-ratio: 1/1;
+  background-color: rgb(251, 145, 145);
+  border-radius: 0% 0% 19% 19% / 0% 0% 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  animation: knipperen 4s linear infinite;
+}
+
+
+
+.ooglidboven {
+  position: absolute;
+  width: 2.5em;
+  height: 2.7em;
+  bottom: -.25em;
+  background-color: rgb(245, 245, 245);
+
+  border-radius: 1.5em 1.5em .25em .25em / 2em 2em .3em .3em;
+  box-shadow: inset -.25em -.25em 0 #00000033;
+  top: -2em;
+}
+
+
+
+.oog .pupil {
+  width: 1em;
+  aspect-ratio: 1/1;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.oog .glimmer {
+  position: absolute;
+  left: .7em;
+  top: .7em;
+
+  width: .4em;
+  aspect-ratio: 1/1;
+
+  background-color: white;
+  border-radius: 50%;
+}
+
+
+.ooglidonder {
+  position: absolute;
+  width: 2.5em;
+  height: 1.3em;
+  bottom: -.25em;
+  background-color: rgb(245, 245, 245);
+
+  border-radius: .25em .25em 4em 4em / .25em .25em 4em 4em;
+  box-shadow: inset -.25em -.25em 0 #00000033;
+  top: 1.5em;
+}
+
+/* de mond van de bunny */
+.mond {
+  position: absolute;
+  width: 2em;
+  height: 1.5em;
+  background-color: rgb(240, 97, 119);
+
+  border-radius: 15em 15em 10em 10em;
+  box-shadow: inset .30em .30em 0 #00000033;
+  top: 3em;
+  left: 5em;
+
+  animation: knipperen 8s linear infinite;
+}
+
+
+/* lijf van de bunny */
+.lijf {
+  position: absolute;
+  width: 20em;
+  height: 16em;
+  background-color: var(--lijf-bg);
+  box-shadow: inset -.3em -.3em 0 #00000033;
+  border-radius: 30% 30% 48% 51% / 43% 47% 15% 14%;
+  top: 30em;
+  left: 3.9em;
+  z-index: 10;
+
+  transform-origin: center bottom;
+  animation-name: wiebelen;
+  animation-duration: .35s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+/* de armen van de bunny */
+.arm {
+  position: absolute;
+  top: .5em;
+
+  width: 7em;
+  height: 10em;
+  background-color: inherit;
+  border-radius: 50% 50% 20% 20% / 65% 65% 30% 30%;
+  z-index: 100;
+}
+
+
+.arm.links {
+  left: -1em;
+  transform: rotate(20deg);
+  box-shadow: inset .25em -.25em 0 #00000033;
+}
+
+
+.arm.rechts {
+  right: -.5em;
+  box-shadow: inset -.25em -.25em 0 #00000033;
+
+  transform: rotate(-16deg);
+  transform-style: preserve-3d;
+  transform-origin: 50% 2em;
+}
+
+
+/* de handen van de bunny */
+.hand {
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  top: 8em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1em 1em 2em 2em;
+  box-shadow: inset -.25em -.25em 0 #00000033;
+  transform: translateZ(.1em);
+}
+
+
+.hand.links {
+  left: -1.5em;
+  transform: rotate(20deg);
+}
+
+.hand.rechts {
+  left: 1.7em;
+  transform: translateZ(-.1em);
+  animation-name: flappen-rechts;
+}
+
+
+
+@keyframes waggelen {
+  0% {
+    scale: 1 1;
+  }
+
+  100% {
+    scale: 1.125 .75;
+  }
+}
+
+/* de voeten van de bunny */
+.voet {
+  position: absolute;
+  width: 6em;
+  height: 3em;
+  bottom: -30.5em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3em 3em 1em 1em / 3em 3em .25em .25em;
+  box-shadow: inset -.25em -.25em 0 #00000033;
+
+  transform-origin: center bottom;
+  animation-name: waggelen;
+  animation-duration: .35s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  z-index: 90;
+}
+
+.voet.links {
+  left: 8.1em;
+
+  animation-direction: alternate-reverse;
+}
+
+.voet.rechts {
+  right: 9.6em;
+
+  animation-direction: alternate;
+}
+
+.joint {
+  position: absolute;
+  width: 10em;
+  height: 1.5em;
+  clip-path: polygon(0% 30%, 100% 0%, 100% 100%, 0% 70%, 0% 30%);
+  background-image: radial-gradient(farthest-side at 100% 50%, rgb(224, 253, 191) 7em, white 7em 9.625em, transparent 9.625em);
+  background-size: 9.625em 400%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  transform: rotate(-20deg);
+  cursor: pointer;
+
+  top: 1.5em;
+  left: 1em;
+}
+
+.punt {
+  position: absolute;
+  right: 0;
+  border-radius: 50%;
+
+  height: 100%;
+  aspect-ratio: 2/4;
+  background-image: radial-gradient(red 20%, orange 70%);
+}
+
+
+.schaduw {
+  position: absolute;
+  width: 25em;
+  height: 5em;
+  background-color: rgb(1, 79, 99);
+  border-radius: 50%;
+
+  top: 44.5em;
+  left: 1.6em;
+}
